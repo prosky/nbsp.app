@@ -6,7 +6,7 @@
 *.sh
 !*.example.sh
 vendor
-www/build
+www/build/dev
 app/config/local.neon
 node_modules
 *-lock.json

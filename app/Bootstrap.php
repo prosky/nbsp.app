@@ -29,11 +29,22 @@ register_shutdown_function(static function () {
 
 class Bootstrap
 {
+	public const DEBUG_SECRET = 'Blbn3tt3';
+	public const ALLOWED_IP = ['212.20.107.230', '127.0.0.1', '::1'];
+
 	public static function boot(): Configurator
 	{
 		$configurator = new Configurator;
 
-		$configurator->setDebugMode(true); // enable for your remote IP
+		/*
+		 * Pro aktivaci debug modu přidejte cookie tracy-debug s hodnotou Blbn3tt3.
+		 * Např javascriptem: document.cookie = 'nette-debug=Blbn3tt3;path=/;'
+		 */
+		$ip = filter_input(INPUT_SERVER, 'REMOTE_ADDR') ?: php_uname('n');
+		$secret = filter_input(INPUT_COOKIE, Configurator::COOKIE_SECRET, FILTER_SANITIZE_STRING);
+		$configurator->setDebugMode($secret === self::DEBUG_SECRET && in_array($ip, self::ALLOWED_IP, true));
+
+
 		$configurator->enableTracy(__DIR__ . '/../log');
 
 		$configurator->setTimeZone('Europe/Prague');

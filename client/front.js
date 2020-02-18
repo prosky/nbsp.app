@@ -10,9 +10,6 @@ import 'codemirror/addon/dialog/dialog.css'
 import 'cm-show-invisibles'
 
 let TASKS;
-
-
-
 function parseConfig(TASKS) {
 	let ret = {};
 	for (let [lang, tasks] of Object.entries(TASKS)) {
@@ -28,7 +25,6 @@ function parseConfig(TASKS) {
 	}
 	return ret;
 }
-
 
 class NbspTool {
 	/**  @var {CodeMirror} inputEditor */
@@ -50,7 +46,6 @@ class NbspTool {
 	preview;
 	/**  @var {Nbsp}*/
 	nbsp;
-
 	constructor(input, output, preview) {
 		this.input = input;
 		this.output = output;
@@ -58,7 +53,6 @@ class NbspTool {
 		this.nbsp = new Nbsp(TASKS);
 		this.init();
 	}
-
 	setLanguage(lang) {
 		if (lang) {
 			this.lang.value = lang;
@@ -67,7 +61,6 @@ class NbspTool {
 			this.update();
 		}
 	}
-
 	init() {
 		this.input.value = localStorage.getItem('value');
 		this.inputEditor = CodeMirror.fromTextArea(input, this.getEditorOptions());
@@ -82,18 +75,15 @@ class NbspTool {
 		lang.addEventListener('change', () => this.setLanguage(lang.value));
 		this.setLanguage(localStorage.getItem('lang'));
 	}
-
 	getEditorOptions(options = {}) {
 		return Object.assign({}, this.editorOptions, options);
 	}
-
 	delay(callback) {
 		return () => {
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(callback, 200);
 		}
 	}
-
 	/**
 	 * @param {KeyboardEvent} e
 	 */
@@ -104,15 +94,12 @@ class NbspTool {
 			return false;
 		}
 	};
-
 	#onInputUpdated = () => this.update();
 	#onOutputUpdated = () => this.outputEditor.setValue(this.output.value);
 	#onInputEditorUpdated = () => this.inputEditor.save() || this.update();
-
 	store() {
 		localStorage.setItem('value', this.input.value);
 	}
-
 	update() {
 		this.store();
 		this.preview.innerHTML = this.input.value
@@ -123,7 +110,6 @@ class NbspTool {
 		this.output.value = beautify.html(this.preview.innerHTML);
 		this.outputEditor.setValue(this.output.value);
 	}
-
 	apply(el) {
 		let walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
 		/**  @var {Node} node  */
@@ -132,7 +118,6 @@ class NbspTool {
 			node.textContent = this.nbsp.replace(node.textContent, this.findLang(node));
 		}
 	}
-
 	/**
 	 * @param {Node} node
 	 * @returns {string | *}
@@ -140,17 +125,14 @@ class NbspTool {
 	findLang(node) {
 		return (node.parentElement?.lang) || (node.parentElement.closest('[lang]')?.lang);
 	}
-
 }
 
 
 class Nbsp {
 	tasks = {};
-
 	constructor(tasks) {
 		this.tasks = tasks;
 	}
-
 	/**
 	 * @param {string} text
 	 * @param {string} lang
