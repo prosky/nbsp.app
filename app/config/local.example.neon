@@ -1,0 +1,14 @@
+
+parameters:
+	devPort: 8099 #Zvolte port jiný pro každý projekt
+	localIp: #192.168.1.159 todo NASTAVIT!
+	devServer: http://%localIp%:%devPort%
+	productionMode: false
+	environment: local
+	localhost: true
+
+
+
+assets:
+	devServer: %devServer%
+	publicPath: /build/dev

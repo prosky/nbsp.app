@@ -1,0 +1,117 @@
+body#tracy-debug {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body#tracy-debug .tracy-panel.tracy-mode-window {
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+}
+
+.tracy-panel iframe:only-of-type {
+    height: 100% !important;
+    width: 100% !important;
+    flex-grow: 1;
+}
+
+#tracy-bs pre, #tracy-bs table {
+    background: #232525;
+    border: 0;
+}
+
+#tracy-debug-bar {
+    background: none;
+}
+
+#tracy-bs div.inner {
+    background: #313335;
+}
+
+div#tracy-bs-error {
+    background: #222;
+}
+
+div#tracy-bs {
+    background: #212121;
+    font-size: 11px;
+    font-family: monospace;
+}
+
+#tracy-bs ul {
+    border-color: #000 !important;
+    background: #171717 !important;
+}
+
+#tracy-debug-bar li > a:hover {
+    background: #313335;
+}
+
+div#tracy-debug-bar {
+    /* background-color: gray; */
+}
+
+#tracy-debug-bar ul {
+    background: #232525 !important;
+    /*padding: 6px 8px;*/
+    /* border-radius: 13px; */
+}
+
+div#tracy-debug-bar {
+    border: 0;
+    opacity: 0.75;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+}
+
+#tracy-debug span[style="color: #000"], #tracy-bs span[style="color: #000"] {
+    color: #9876aa !important;
+}
+
+#tracy-debug .inner, #tracy-bs .inner {
+    background: #313335;
+    color: white;
+}
+
+#tracy-debug p, #tracy-bs p {
+    color: #7b7777 !important;
+}
+
+#tracy-debug a, #tracy-bs a {
+    color: white !important;
+    transition: 0.15s;
+}
+
+#tracy-debug a:hover, #tracy-bs a:hover {
+    color: #93258d !important;
+}
+
+#tracy-debug span[style="color: #D24; font-weight: bold"], #tracy-bs span[style="color: #D24; font-weight: bold"] {
+    color: #a9b7c6 !important;
+}
+
+#tracy-debug span.highlight, #tracy-bs span.highlight {
+    background: #323232 !important;
+    color: #ba4c4c !important;
+}
+
+#tracy-debug span.line, #tracy-bs span.line {
+    color: gray !important;
+}
+
+#tracy-debug h1, #tracy-bs h1 {
+    color: #d7d7d7 !important;
+}
+
+#tracy-debug span.tracy-label, #tracy-bs span.tracy-label {
+    color: #a9b7c6 !important;
+}
+
+#tracy-debug a[rel="tracy-debug-panel-Tracy-errors"] span, #tracy-bs a[rel="tracy-debug-panel-Tracy-errors"] span {
+    background: none !important;
+    color: #ba4139 !important;
+}
+
+#tracy-debug a[rel="tracy-debug-panel-Tracy-errors"] span svg path, #tracy-bs a[rel="tracy-debug-panel-Tracy-errors"] span svg path {
+    fill: #ba4139;
+}
