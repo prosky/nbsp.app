@@ -9,10 +9,11 @@ const ROOT_DIR = resolve(CLIENT_DIR, '..');
 const WWW_DIR = resolve(ROOT_DIR, 'www');
 const NODE_DIR = resolve(ROOT_DIR, 'node_modules');
 const OUTPUT_DIR = resolve(WWW_DIR, 'build');
+const HASH = DEV_SERVER ? '' : '.[contenthash:8]';
 
 module.exports = (env = {}) => {
 	return {
-		DEV_SERVER, CLIENT_DIR, ROOT_DIR, NODE_DIR, WWW_DIR, OUTPUT_DIR,
+		DEV_SERVER, CLIENT_DIR, ROOT_DIR, NODE_DIR, WWW_DIR, OUTPUT_DIR, HASH,
 		common: {
 			entry: {
 				front: [
@@ -54,14 +55,14 @@ module.exports = (env = {}) => {
 						test: /\.(otf|ttf|eot|svg|woff2?)(\?v=[0-9]\.[0-9]\.[0-9])?$/i,
 						loader: 'file-loader',
 						options: {
-							name: 'fonts/[name].[contenthash:8].[ext]'
+							name: `fonts/[name]${HASH}.[ext]`
 						}
 					},
 					{
 						test: /\.s?css$/,
 						use: [
 							DEV_SERVER ? 'css-hot-loader' : false,
-							MiniCssExtractPlugin.loader,
+							DEV_SERVER ? 'style-loader' : MiniCssExtractPlugin.loader,
 							{
 								loader: 'css-loader',
 								options: {sourceMap: true},
@@ -75,9 +76,13 @@ module.exports = (env = {}) => {
 
 				],
 			},
+			output: {
+				filename: `[name]${HASH}.js`,
+				chunkFilename: `[name]${HASH}.js`,
+			},
 			plugins: [
 				new MiniCssExtractPlugin({
-					filename: DEV_SERVER ? '[name].css' : '[name].[contenthash:8].css',
+					filename: `[name]${HASH}.css`,
 					//allChunks: false,
 				}),
 				!DEV_SERVER && new CleanWebpackPlugin(),

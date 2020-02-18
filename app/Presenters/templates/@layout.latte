@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width">
     <title>{ifset title}{include title|stripHtml} | {/ifset}NBSP</title>
     <link rel="stylesheet" href="{assets front.css}">
-    <script src="{assets front.js}" async defer></script>
+    <script src="{assets front.js}" ></script>
 </head>
 
 <body>
 <div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
-
+<script id="nbsp-tasks" type="application/json" n:nonce>{json_encode($tasks)|noescape}</script>
 {include content}
 {block scripts}
 {/block}

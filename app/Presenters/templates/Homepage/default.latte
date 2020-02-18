@@ -1,29 +1,37 @@
 {* This is the welcome page, you can delete it *}
 
 {block content}
+<main class="container-fluid py-4" n:snippet="forms">
+    <nav class="d-flex justify-content-center align-items-center">
+        <h1 class="text-center nav-item mb-0 mr-3">NBSP</h1>
+    </nav>
 
-<div class="container py-5">
-    <h1>NBSP</h1>
-    <div class="card" n:snippet="forms">
-        <div class="card-body">
+    <div class="row text-center no-gutters">
+        <div class="col">Input</div>
+        <div class="col">Output</div>
+        <div class="col">Preview (resizable)</div>
+    </div>
+    <div class="row border flex-grow-1 no-gutters mb-5">
+        <div class="col-4 border">
             {form input}
-                <div class="form-group">
-                    {input locale}
-                    {inputError locale}
-                </div>
-                <div class="form-group">
-                    {input text}
-                    {inputError text}
-                </div>
-                {input submit}
+                {input locale}
+                {inputError locale}
+                {input text}
+                {inputError text}
+                {input submit class=>'btn btn-primary'}
             {/form}
         </div>
-        <div class="card-footer">
+        <div class="col-4 border">
             {form output}
                 {input text}
                 {inputError text}
             {/form}
         </div>
-
+        <div class="col-4 ">
+            <div class="resize form-control h-100">
+                {$control[output][text]->getValue()|noescape}
+            </div>
+        </div>
     </div>
-</div>
+</main>
+

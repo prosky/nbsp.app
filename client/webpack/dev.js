@@ -6,7 +6,7 @@ const merge = require('webpack-merge');
 const chokidar = require('chokidar');
 
 module.exports = (env = {}) => {
-	const {common, ROOT_DIR, DEV_SERVER, WWW_DIR, OUTPUT_DIR} = require('./common.js')(env);
+	const {common, ROOT_DIR, DEV_SERVER, WWW_DIR, OUTPUT_DIR, HASH} = require('./common.js')(env);
 
 	const DIST_DIR = resolve(OUTPUT_DIR, 'dev');
 	const DEV_HOST = ip.address();
@@ -50,9 +50,7 @@ module.exports = (env = {}) => {
 		},
 		output: {
 			path: DIST_DIR,
-			publicPath: PUBLIC_PATH,
-			filename: DEV_SERVER ? '[name].js' : '[name].[contenthash:8].js',
-			chunkFilename: DEV_SERVER ? '[name].js' : '[name].[contenthash:8].js',
+			publicPath: PUBLIC_PATH
 		},
 		stats: {colors: true},
 		plugins: [

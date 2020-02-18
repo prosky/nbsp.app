@@ -9,6 +9,27 @@ import 'codemirror/addon/dialog/dialog'
 import 'codemirror/addon/dialog/dialog.css'
 import 'cm-show-invisibles'
 
+let TASKS;
+
+
+
+function parseConfig(TASKS) {
+	let ret = {};
+	for (let [lang, tasks] of Object.entries(TASKS)) {
+		ret[lang] = Object.values(tasks).map(([regex, replacement]) => {
+			let matches = regex.match(/^@(?<reg>.*)@(?<flags>\w+)?$/);
+			if (matches) {
+				let {reg, flags} = matches.groups;
+				return [new RegExp(reg, flags + 'g'), replacement]
+			} else {
+				console.log(matches, regex);
+			}
+		});
+	}
+	return ret;
+}
+
+
 class NbspTool {
 	/**  @var {CodeMirror} inputEditor */
 	inputEditor;
@@ -18,7 +39,7 @@ class NbspTool {
 	editorOptions = {
 		showInvisibles: true,
 		mode: 'xml',
-		//lineWrapping: true,
+		lineWrapping: true,
 		theme: 'one-dark'
 	};
 	/**  @var {HTMLTextAreaElement} input */
@@ -34,7 +55,7 @@ class NbspTool {
 		this.input = input;
 		this.output = output;
 		this.preview = preview;
-		this.nbsp = new Nbsp();
+		this.nbsp = new Nbsp(TASKS);
 		this.init();
 	}
 
@@ -49,7 +70,6 @@ class NbspTool {
 
 	init() {
 		this.input.value = localStorage.getItem('value');
-
 		this.inputEditor = CodeMirror.fromTextArea(input, this.getEditorOptions());
 		this.inputEditor.on('keyup', this.delay(this.#onInputEditorUpdated));
 		this.inputEditor.on('change', this.#onInputEditorUpdated);
@@ -58,7 +78,6 @@ class NbspTool {
 		this.input.addEventListener('keyup', this.delay(this.#onInputUpdated));
 		this.output.addEventListener('change', this.#onOutputUpdated);
 		document.addEventListener('keydown', this.#onKeyDown);
-
 		this.lang = document.getElementById('lang');
 		lang.addEventListener('change', () => this.setLanguage(lang.value));
 		this.setLanguage(localStorage.getItem('lang'));
@@ -124,60 +143,12 @@ class NbspTool {
 
 }
 
-const EMPTY = '(^|$|;| |&nbsp;|\\(|\\n|>)';
-const TASKS = {
-	short_words: [`@${EMPTY}(.{1,3}) @ig`, `$1$2\u00A0`],
-	non_breaking_hyphen: [`@(\\w{1})-(\\w+)@ig`, `$1\u2011$2`],
-	numbers: [`@(\\d) (\\d)@ig`, `$1\u00A0$2`],
-	spaces_in_scales: [`@(\\d) : (\\d)@ig`, `$1\u00A0:\u00A0$2`],
-	ordered_number: [`@(\\d\\.) ([0-9a-záčďéěíňóřšťúýž])@ig`, `$1\u00A0$2`],
-	abbreviations: [`@${EMPTY}(%keys%) @ig`, '$1$2\u00A0'],
-	prepositions: [`@${EMPTY}(%keys%) @ig`, `$1$2\u00A0`],
-	conjunctions: [`@${EMPTY}(%keys%) @ig`, `$1$2\u00A0`],
-	article: [`@${EMPTY}(%keys%) @ig`, `$1$2\u00A0`],
-	units: [`@(\\d) (%keys%)(^|[;\\.!:]| | |\\?|\\n|\\)|<|\\010|\\013|$)@ig`, `$1\u00A0$2$3`]
-};
-
-const KEYS = {
-	cs: {
-		prepositions: "do|kromě|od|u|z|ze|za|proti|naproti|kvůli|vůči|nad|pod|před|za|o|pro|mezi|přes|mimo|při|na|po|v|ve|pod|před|s|za|mezi|se|si|k|je",
-		conjunctions: "a|i|o|u",
-		abbreviations: "vč.|cca.|č.|čís.|čj.|čp.|fa|fě|fy|kupř.|mj.|např.|p.|pí|popř.|př.|přib.|přibl.|sl.|str.|sv.|tj.|tzn.|tzv.|zvl.",
-		units: "m|m²|l|kg|h|°C|Kč|lidí|dní|%|mil"
-	}, en: {
-		prepositions: "aboard|about|above|across|after|against|ahead of|along|amid|amidst|among|around|are|as|as far as|as of|aside from|at|athwart|atop|be|barring|because of|before|behind|below|beneath|beside|besides|between|beyond|but|by|by means of|circa|concerning|despite|down|during|except|except for|excluding|far from|following|for|from|is|in|in accordance with|in addition to|in case of|in front of|in lieu of|in place of|in spite of|including|inside|instead of|into|like|minus|near|next to|notwithstanding|of|off|on|on account of|on behalf of|on top of|onto|opposite|out|out of|outside|over|past|plus|prior to|regarding|regardless of|save|since|than|through|throughout|till|to|toward|towards|under|underneath|unlike|until|up|upon|versus|via|with|with regard to|within|without",
-		conjunctions: "and|at|even|about|or|to",
-		article: "a|an|the",
-		units: "m|m²|l|kg|h|°C|Kč|peoples|days|moths|%|miles"
-	}
-};
 
 class Nbsp {
 	tasks = {};
 
-	constructor() {
-		this.init();
-	}
-
-	init() {
-		for (let lang of Object.keys(KEYS)) {
-			this.tasks[lang] = Object.entries(TASKS).map(([name, [regex, replacement]]) => {
-				let keys = KEYS[lang][name];
-				if (!keys && regex.indexOf('%keys%') !== -1) {
-					return false;
-				}
-				if (keys) {
-					regex = regex.replace('%keys%', keys);
-				}
-				let matches = regex.match(/^@(?<reg>.*)@(?<flags>\w+)?$/);
-				if (matches) {
-					let {reg, flags} = matches.groups;
-					return [new RegExp(reg, flags), replacement]
-				} else {
-					console.log(matches, regex);
-				}
-			}).filter(Boolean);
-		}
+	constructor(tasks) {
+		this.tasks = tasks;
 	}
 
 	/**
@@ -187,15 +158,34 @@ class Nbsp {
 	replace(text, lang) {
 		/**  @var {RegExp} regex  */
 		for (let [regex, replacement] of this.tasks[lang]) {
-			console.log(text, regex, replacement);
 			text = text.replace(regex, replacement);
 		}
 		return text;
 	}
 }
-
-new NbspTool(
-	document.getElementById('input'),
-	document.getElementById('output'),
-	document.getElementById('preview')
-);
+window.addEventListener('DOMContentLoaded', (event) => {
+	TASKS = parseConfig(JSON.parse(document.getElementById('nbsp-tasks').innerHTML));
+	/**  @var {HTMLDivElement} el */
+	for (let el of document.querySelectorAll('[data-nbsp-tool]')) {
+		el.NbspTool = new NbspTool(
+			el.querySelector('#input'),
+			el.querySelector('#output'),
+			el.querySelector('#preview')
+		);
+	}
+	for (let el of document.querySelectorAll('textarea[data-code-mirror]')) {
+		if (!el.CodeMirror) {
+			el.CodeMirror = CodeMirror.fromTextArea(el, JSON.parse(el.dataset.codeMirror));
+			let timeout;
+			el.CodeMirror.on('keyup', () => {
+				clearTimeout(timeout);
+				setTimeout(() => {
+					el.CodeMirror.save()
+				}, 500);
+			});
+			el.CodeMirror.on('change', () => {
+				el.CodeMirror.save()
+			});
+		}
+	}
+});

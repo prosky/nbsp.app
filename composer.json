@@ -1,5 +1,5 @@
 {
-  "name": "nette/web-project",
+  "name": "prosky/nbsp.app",
   "description": "Nette: Standard Web Project",
   "keywords": [
     "nette"
@@ -25,11 +25,12 @@
     "nette/robot-loader": "^3.0",
     "nette/security": "^3.0",
     "nette/utils": "^3.0",
-    "latte/latte": "v2.5.x-dev",
+    "latte/latte": "^2.6",
     "tracy/tracy": "^2.6",
     "ext-zip": "*",
     "ext-dom": "*",
-    "ext-mbstring": "*"
+    "ext-mbstring": "*",
+    "prosky/nbsp": "dev-master"
   },
   "require-dev": {
 	  "roave/security-advisories": "dev-master",

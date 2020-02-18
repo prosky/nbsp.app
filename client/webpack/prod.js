@@ -9,9 +9,7 @@ module.exports = (env = {}) => {
 		devtool: 'source-map',
 		output: {
 			path: DIST_DIR,
-			publicPath: '/build/prod/',
-			filename: '[name].[contenthash:8].js',
-			chunkFilename: '[name].[contenthash:8].js'
+			publicPath: '/build/prod/'
 		}
 	})
 };
