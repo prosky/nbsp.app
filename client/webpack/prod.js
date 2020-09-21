@@ -1,5 +1,5 @@
 const resolve = require('path').resolve;
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 
 module.exports = (env = {}) => {
 	const {common, OUTPUT_DIR} = require('./common.js')(env);

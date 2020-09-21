@@ -2,7 +2,7 @@ const {resolve} = require('path');
 const fs = require('fs');
 const ip = require('ip');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const {merge} = require('webpack-merge');
 const chokidar = require('chokidar');
 
 module.exports = (env = {}) => {

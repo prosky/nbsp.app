@@ -26,7 +26,7 @@
     "nette/security": "^3.0",
     "nette/utils": "^3.0",
     "latte/latte": "^2.6",
-    "tracy/tracy": "^2.6",
+    "tracy/tracy": "^2.8",
     "ext-zip": "*",
     "ext-dom": "*",
     "ext-mbstring": "*",
@@ -45,7 +45,7 @@
   "prefer-stable": true,
   "config": {
     "platform": {
-      "php": "7.1"
+      "php": "7.4"
     }
   }
 }
