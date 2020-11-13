@@ -13,15 +13,8 @@ import 'codemirror/addon/dialog/dialog.css'
 import 'cm-show-invisibles'
 
 function parseConfig(tasks) {
-    console.log(tasks);
     return Object.values(tasks).map(([regex, replacement]) => {
-        let matches = regex.match(/^@(?<reg>.*)@(?<flags>\w+)?$/);
-        if (matches) {
-            let {reg, flags} = matches.groups;
-            return [new RegExp(reg, flags + 'g'), replacement]
-        } else {
-            console.log(matches, regex);
-        }
+        return [new RegExp(regex,   'ig'), replacement]
     });
 }
 

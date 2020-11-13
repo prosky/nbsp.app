@@ -8,39 +8,39 @@ const conjunctions = 'a|i|o|u';
 
 export default {
     non_breaking_hyphen: [
-        `@(\\w{1})-(\\w+)@i`,
+        `(\\w{1})-(\\w+)`,
         `$1‑$2`
     ],
     numbers: [
-        `@(\\d) (\\d)@i`,
+        `(\\d) (\\d)`,
         `$1 $2`
     ],
     spaces_in_scales: [
-        `@(\\d) : (\\d)@i`,
+        `(\\d) : (\\d)`,
         `$1 : $2`
     ],
     ordered_number: [
-        `@(\\d\\.) (${allChars})@i`,
+        `(\\d\\.) (${allChars})`,
         `$1 $2`
     ],
     abbreviations: [
-        `@(${space})(${abbreviations}) @i`,
+        `(${space})(${abbreviations}) `,
         `$1$2 `
     ],
     prepositions: [
-        `@(${space})(${prepositions}) @i`,
+        `(${space})(${prepositions}) `,
         `$1$2 `
     ],
     conjunctions: [
-        `@(${space})(${conjunctions}) @i`,
+        `(${space})(${conjunctions}) `,
         `$1$2 `
     ],
     units: [
-        `@(\\d) (${units})(^|[;\\.!:]| | |\\?|\\n|\\)|<|\\010|\\013|$)@i`,
+        `(\\d) (${units})(^|[;\\.!:]| | |\\?|\\n|\\)|<|\\010|\\013|$)`,
         `$1 $2$3`
     ],
     short_words: [
-        `@(${space})(.{1,3}) @i`,
+        `(${space})(.{1,3}) `,
         `$1$2 `
     ]
 };
