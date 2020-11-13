@@ -1,5 +1,6 @@
 import prettier from 'prettier/standalone'
 import html from 'prettier/parser-html'
+import beautify from 'js-beautify'
 
 /**  @var {CodeMirror} CodeMirror */
 import CodeMirror from 'codemirror'
@@ -125,17 +126,23 @@ class NbspTool {
     update() {
         this.store();
         this.preview.innerHTML = this.input.value
-            .replace(/\n\s+/g, '\n')
-            .replace(/\s+/g, ' ')
+            //.replace(/\n{3}/g, '\n\n')
+            .replace(/(\n+)\s+/g, '$1')
+            .replace(/(&nbsp;| ) /g, ' ')
+            //.replace(/\s+/g, ' ')
             .replace(/<\/(\w+)>\n/g, '</$1> ')
             .replace(/ {2,}/g, ' ')
         ;
         this.apply(this.preview);
-        this.output.value = prettier.format(this.preview.innerHTML, {
+        this.preview.innerHTML = this.preview.innerHTML
+            .replace(/([,])&nbsp;/g, '$1 ');
+
+        this.output.value = beautify.html(this.preview.innerHTML);
+        /*this.output.value = prettier.format(this.preview.innerHTML, {
             parser: 'html',
             plugins: [html],
             printWidth: 999999999999999
-        });
+        });*/
         this.outputEditor.setValue(this.output.value);
     }
 

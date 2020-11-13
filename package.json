@@ -1,6 +1,6 @@
 {
   "name": "@prosky/nbsp.app",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "private": true,
   "homepage": "https://prosky.github.io/nbsp.app/",
   "description": "Tool for inserting non breakable spaces into html",
