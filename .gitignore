@@ -1,13 +1,3 @@
-.*
-!.gitignore
-!.rsyncignore
-!.gitattributes
-!.babelrc
-*.sh
-!*.example.sh
-vendor
-www/build/dev
-app/config/local.neon
-node_modules
-*-lock.json
-*.lock
+**/.DS_Store
+/node_modules
+/dist

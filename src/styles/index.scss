@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Menlo';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Menlo'), url('../fonts/Menlo-Regular.woff') format('woff');
+}
+
+$border-radius: 0;
+$body-bg: #282c34;
+$body-color: #A9B7C6;
+$input-bg: #282c34;
+$input-color: #A9B7C6;
+
+@import "./bootstrap";
+@import "~codemirror/lib/codemirror.css";
+@import "./one-dark";
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+table {
+  table-layout: fixed;
+
+  td, th {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.resize {
+  resize: horizontal;
+  overflow: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+[data-toggle] {
+  cursor: pointer;
+}
+
+[data-toggle] {
+  &:after {
+    font-size: .7em;
+    margin-left: .25rem;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform .35s ease;
+    // transform-origin: 50% 40%;
+    content: '\25b2';
+  }
+
+  &:not(:focus) {
+    &:after {
+      transform: scale(1, -1);
+    }
+
+    + * {
+      display: none;
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 999;
+}

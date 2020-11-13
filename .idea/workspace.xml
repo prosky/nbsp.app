@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="90d1aa53-c330-4b05-9b69-b06cebfc0154" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/fonts/Menlo-Regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/front.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/tasks/cs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/tasks/en.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/bootstrap.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/one-dark.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Bootstrap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/Error4xxPresenter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/ErrorPresenter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/HomepagePresenter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/JavascriptPresenter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/@layout.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/403.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/404.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/405.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/410.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/4xx.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/500.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Error/503.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Homepage/default.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Presenters/templates/Javascript/default.latte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Router/RouterFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Arrays.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Assets/Extension.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Assets/Macros.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Assets/PathProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Assets/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Callback.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Config.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Date.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Helpers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Strings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/BlueScreen/BlueScreenAction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/BlueScreen/BlueScreenPanel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/BlueScreen/ContainerBuilderDefinitionsBlueScreen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/BlueScreen/ContainerBuilderParametersBlueScreen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/PhpInfoPanel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Utils/Tracy/tracy.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/common.neon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/local.example.neon" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/tracy/PhpInfoPanel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/fonts/Menlo-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/front.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/front.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/one-dark.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webpack/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webpack/dev.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webpack/prod.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/fonts/Menlo-Regular.02bb0174.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/front.8ab54e37.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/front.8ab54e37.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/front.9098bba4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/front.9098bba4.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/build/prod/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/robots.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jrstP8MdYTsM4vl1EnxmRFmdbL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/images" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/images" />
+      <recent name="$PROJECT_DIR$/src/js/tasks" />
+      <recent name="$PROJECT_DIR$/src/js" />
+      <recent name="$PROJECT_DIR$/src/fonts" />
+      <recent name="$PROJECT_DIR$/src/styles" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prod" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.prod" />
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="90d1aa53-c330-4b05-9b69-b06cebfc0154" name="Default Changelist" comment="" />
+      <created>1604573758782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604573758782</updated>
+      <workItem from="1604573759817" duration="1286000" />
+      <workItem from="1604576427376" duration="9391000" />
+      <workItem from="1604653815666" duration="12000" />
+      <workItem from="1604665626334" duration="257000" />
+      <workItem from="1604996683810" duration="1576000" />
+      <workItem from="1605089645257" duration="2283000" />
+      <workItem from="1605255637013" duration="3385000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="2454" height="561" key="GridCell.Tab.0.bottom" timestamp="1605259046565">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2454" height="561" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@1920.0.2560.1440" timestamp="1605259046565" />
+    <state width="1638" height="285" key="GridCell.Tab.0.bottom/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@4480.0.1680.1050" timestamp="1604665883261" />
+    <state width="2454" height="561" key="GridCell.Tab.0.center" timestamp="1605259046565">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2454" height="561" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@1920.0.2560.1440" timestamp="1605259046565" />
+    <state width="1638" height="285" key="GridCell.Tab.0.center/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@4480.0.1680.1050" timestamp="1604665883261" />
+    <state width="2454" height="561" key="GridCell.Tab.0.left" timestamp="1605259046565">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2454" height="561" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@1920.0.2560.1440" timestamp="1605259046565" />
+    <state width="1638" height="285" key="GridCell.Tab.0.left/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@4480.0.1680.1050" timestamp="1604665883261" />
+    <state width="2454" height="561" key="GridCell.Tab.0.right" timestamp="1605259046565">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state width="2454" height="561" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@1920.0.2560.1440" timestamp="1605259046565" />
+    <state width="1638" height="285" key="GridCell.Tab.0.right/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@4480.0.1680.1050" timestamp="1604665883261" />
+    <state x="4824" y="160" width="992" height="732" key="SettingsEditor" timestamp="1604590188774">
+      <screen x="4480" y="0" width="1680" height="1050" />
+    </state>
+    <state x="4824" y="160" width="992" height="732" key="SettingsEditor/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@4480.0.1680.1050" timestamp="1604590188774" />
+    <state x="2875" y="473" width="585" height="494" key="find.popup" timestamp="1605258072848">
+      <screen x="1920" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2875" y="473" width="585" height="494" key="find.popup/1920.0.2560.1440/4480.0.1680.1050/0.0.1920.1080@1920.0.2560.1440" timestamp="1605258072848" />
+  </component>
+</project>
