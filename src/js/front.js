@@ -122,8 +122,8 @@ class NbspTool {
         this.preview.innerHTML = this.input.value
             //.replace(/\n{3}/g, '\n\n')
             //.replace(/(\n+)\s+/g, '$1')
-            .replace(/\n/g, ' ')
-            .replace(/\s+/g, ' ')
+            .replace(/\n([^\n])/g, ' $1')
+            .replace(/ +/g, ' ')
             //.replace(/(\n+)\s+/g, '$1')
             .replace(/(&nbsp;| ) /g, ' ')
             //.replace(/\s+/g, ' ')
