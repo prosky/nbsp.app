@@ -7,12 +7,8 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-
-
   <body>
-  <script id="nbsp-tasks" type="application/json">
-
-   </script>
+  <script id="nbsp-tasks" type="application/json"></script>
   <main class="container-fluid py-4" data-nbsp-tool>
     <nav class="d-flex justify-content-center align-items-center">
       <h1 class="text-center nav-item mb-0 mr-3">NBSP</h1>
@@ -21,8 +17,7 @@
         <option value="en">en</option>
       </select>
     </nav>
-
-    <div class="row text-center no-gutters">
+    <div class="row text-center g-0">
       <div class="col">
         <label for="input">Input</label>
         <span tabindex="0" data-toggle>(info)</span>
@@ -50,14 +45,14 @@
       <div class="col"><label for="output">Output</label></div>
       <div class="col">Preview (resizable)</div>
     </div>
-    <div class="row border flex-grow-1 no-gutters mb-5">
+    <div class="row border flex-grow-1 g-0 mb-5">
       <div class="col-4 border">
         <textarea class="form-control border-0 h-100" id="input" name="input"></textarea>
       </div>
       <div class="col-4 border">
         <textarea class="form-control border-0 h-100" id="output" name="output" readonly></textarea>
       </div>
-      <div class="col-4 ">
+      <div class="col-4 border">
         <div id="preview" class="resize form-control  h-100"></div>
       </div>
     </div>

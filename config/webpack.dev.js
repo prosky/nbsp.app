@@ -10,7 +10,7 @@ module.exports = merge(common, {
   mode: 'development',
 
   // Control how source maps are generated
-  devtool: 'inline-source-map',
+  devtool: false,
 
   // Spin up a server for quick development
   devServer: {
@@ -25,10 +25,12 @@ module.exports = merge(common, {
   plugins: [
 
     new MiniCssExtractPlugin({
-      filename: `[name].css`,
-      hmr: true
+      filename: `[name].css`
     }),
     // Only update what has changed on hot reload
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin({
+          filename: 'sourcemaps/[file].map'
+      }),
   ],
 })

@@ -10,6 +10,7 @@ $body-bg: #282c34;
 $body-color: #A9B7C6;
 $input-bg: #282c34;
 $input-color: #A9B7C6;
+$input-border-width: 0;
 
 @import "./bootstrap";
 @import "~codemirror/lib/codemirror.css";

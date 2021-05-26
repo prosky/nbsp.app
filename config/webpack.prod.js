@@ -3,7 +3,6 @@ const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -23,7 +22,6 @@ module.exports = merge(common, {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new OptimizeCssAssetsPlugin(), "..."],
     // Once your build outputs multiple chunks, this option will ensure they share the webpack runtime
     // instead of having their own. This also helps with long-term caching, since the chunks will only
     // change when actual code changes, not the webpack runtime.

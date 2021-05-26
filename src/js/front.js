@@ -11,6 +11,7 @@ import 'codemirror/addon/search/jump-to-line'
 import 'codemirror/addon/dialog/dialog'
 import 'codemirror/addon/dialog/dialog.css'
 import 'cm-show-invisibles'
+import {onDocumentReady} from "./const";
 
 function parseConfig(tasks) {
     return Object.values(tasks).map(([regex, replacement]) => {
@@ -120,7 +121,10 @@ class NbspTool {
         this.store();
         this.preview.innerHTML = this.input.value
             //.replace(/\n{3}/g, '\n\n')
-            .replace(/(\n+)\s+/g, '$1')
+            //.replace(/(\n+)\s+/g, '$1')
+            .replace(/\n/g, ' ')
+            .replace(/\s+/g, ' ')
+            //.replace(/(\n+)\s+/g, '$1')
             .replace(/(&nbsp;| ) /g, ' ')
             //.replace(/\s+/g, ' ')
             .replace(/<\/(\w+)>\n/g, '</$1> ')
@@ -146,7 +150,7 @@ class NbspTool {
         while (node = walker.nextNode()) {
             let replacement = this.nbsp.replace(node.textContent, this.findLang(node));
             if (!node.nextSibling || !this.inlineNodes.includes(node.nextSibling.nodeName.toLowerCase())) {
-                replacement = replacement.replace(/[ &nbsp;\xc2\xa0]$/, '');
+                replacement = replacement.replace(/( |&nbsp;|\xc2|\xa0)$/, '');
             }
             node.textContent = replacement;
         }
@@ -182,8 +186,7 @@ class Nbsp {
     }
 }
 
-window.addEventListener('DOMContentLoaded', (event) => {
-
+onDocumentReady(() => {
     /**  @var {HTMLDivElement} el */
     for (let el of document.querySelectorAll('[data-nbsp-tool]')) {
         el.NbspTool = new NbspTool(
